@@ -7,7 +7,7 @@ from dash.dependencies import Input, Output
 import plotly.express as px
 from numpy.random import seed, rand
 import numpy as np
-
+import os 
 # Generate random data
 np.random.seed(1)
 x, y, sz, cl = np.random.rand(4, 100)
@@ -42,4 +42,5 @@ def display_graph(render_option):
 
 
 if __name__ == "__main__":
-    app.run_server(debug=True)
+    port = int(os.environ.get('PORT', 5000))
+    app.run_server(host = "0,0,0,0", port = port)
